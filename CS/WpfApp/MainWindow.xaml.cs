@@ -1,20 +1,6 @@
-﻿using DevExpress.Xpf.Editors;
-using DevExpress.Xpf.PivotGrid;
-using System;
-using System.Collections.Generic;
+﻿using DevExpress.Xpf.PivotGrid;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WpfApp {
     /// <summary>
@@ -24,13 +10,11 @@ namespace WpfApp {
         public MainWindow() {
             InitializeComponent();
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e) {
             PivotHelper.FillPivot(PivotGrid);
             PivotGrid.DataSource = PivotHelper.GetDataTable();
             PivotGrid.BestFit();
         }
-
         // Handles the CustomFieldValueCells event to remove specific rows
         protected void pivotGrid_CustomFieldValueCells(object sender, PivotCustomFieldValueCellsEventArgs e) {
             PivotGridControl pivot = (PivotGridControl)sender;
